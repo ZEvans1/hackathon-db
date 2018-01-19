@@ -101,4 +101,15 @@ public class Sql2oTeamDaoTest {
         teamDao.deleteById(team.getId());
         assertEquals(0, teamDao.getAll().size());
     }
+
+    @Test
+    public void allTeamsCanBeDeleted() throws Exception {
+        Team team = setupNewTeam();
+        Team team1 = setupNewTeam();
+        teamDao.add(team);
+        teamDao.add(team1);
+        int teamSize = teamDao.getAll().size();
+        teamDao.deleteAllTeams();
+        assertTrue(teamDao.getAll().size()==2);
+    }
 }
