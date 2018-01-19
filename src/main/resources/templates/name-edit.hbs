@@ -1,0 +1,17 @@
+{{#partial "content"}}
+
+
+<h3>Change Team Name</h3>
+<div>
+    <form action="/teams/{{editTeam.id}}/update" method="post">
+
+        <label for="newName">Team Name</label>
+        <input id="newName" name="newName" type="text">
+
+        <button type="submit" class="btn btn-default">Edit Name</button>
+    </form>
+</div>
+
+{{/partial}}
+
+{{> layout.hbs}}

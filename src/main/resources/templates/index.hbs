@@ -1,0 +1,17 @@
+{{#partial "content"}}
+
+    <h2>List of Teams</h2>
+    <h4>Click a team to view details, edit team name, or add a team member to the team:</h4>
+
+    {{#if teams}}
+        {{#each teams}}
+        <p><a href="/teams/{{id}}">{{ name }}</a></p>
+        {{/each}}
+    {{else}}
+    <p id="no-teams">No teams currently registered.</p>
+    {{/if}}
+
+
+{{/partial}}
+
+{{> layout.hbs}}

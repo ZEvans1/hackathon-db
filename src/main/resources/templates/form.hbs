@@ -1,0 +1,25 @@
+{{#partial "content"}}
+<h2>Add Your Team Here: </h2>
+<div class="container-fluid">
+    <div class="form-group">
+        <div class="row">
+        <form action="/teams/new" method="post">
+
+            <label for="name">Team Name</label>
+            <input id="name" name="name" type="text">
+            <br>
+            <label for="description">Description</label>
+            <input id="description" name="description" type="text">
+            <br>
+            <label for="member">Team Captain</label>
+            <input id="member" name="member" type="text">
+            <br>
+            <button type="submit" class="btn btn-default">Add Team</button>
+        </form>
+        </div>
+    </div>
+</div>
+
+{{/partial}}
+
+{{> layout.hbs}}

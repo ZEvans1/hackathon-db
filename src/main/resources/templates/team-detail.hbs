@@ -1,0 +1,19 @@
+{{#partial "content"}}
+
+{{#if team}}
+<h3>Team Name:</h3>
+<p>{{ team.name }}</p>
+<h3>Team Description:</h3>
+<p> {{ team.description }}</p>
+<h3>Team List:</h3>
+<p>{{ team.memberList }}</p>
+
+
+<a href="/teams/{{team.id}}/add">Add a Team Member.</a><br>
+<a href="/teams/{{team.id}}/update">Update team name.</a><br>
+
+{{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}

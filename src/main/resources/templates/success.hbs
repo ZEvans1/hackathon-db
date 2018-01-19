@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title"}}Hack-a-thon{{/block}}</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="/">Home</a></li>
+    <li role="presentation"><a href="/teams/new">Add a New Team</a></li>
+</ul>
+<div class="container">
+    <div class="page-header">
+
+        <h1>Input accepted.</h1>
+    </div>
+
+    <div class="col-md-12">
+        {{#block "content"}}
+        {{/block}}
+
+    </div>
+</div>
+{{#block "footer"}}
+
+</body>
+</html>
+{{/block}}
