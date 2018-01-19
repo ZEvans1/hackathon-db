@@ -39,4 +39,13 @@ public class Sql2oMemberDaoTest {
         assertNotEquals(originalMemberId, member.getId());
     }
 
+    @Test
+    public void newMember_returnAllMemberObjectsInDB_2() throws Exception {
+        Member member = setupNewMember();
+        Member member2 = setupNewMember();
+        memberDao.add(member);
+        memberDao.add(member2);
+        assertEquals(1, memberDao.getAll().size());
+    }
+
 }
