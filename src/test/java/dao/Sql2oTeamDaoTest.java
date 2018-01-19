@@ -83,4 +83,14 @@ public class Sql2oTeamDaoTest {
 
         assertTrue(teamDao.getAllMembersByTeam(teamId).size()==2);
     }
+
+    @Test
+    public void newTeam_updateChangesTeamName() throws Exception {
+        String initialName = "Team1";
+        Team team = new Team(initialName, "hey");
+        teamDao.add(team);
+        teamDao.update(team.getId(),"Team One");
+        Team updatedTeam = teamDao.findById(team.getId());
+        assertEquals(initialName, updatedTeam.getName());
+    }
 }
