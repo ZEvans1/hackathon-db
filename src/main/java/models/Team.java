@@ -1,80 +1,59 @@
 package models;
 
-import java.util.ArrayList;
 
 public class Team {
     private String name;
     private String description;
-    private String member;
-    private String newMember;
     private int id;
-    private ArrayList<String> memberList;
-    private static ArrayList<Team> instances = new ArrayList<>();
 
-
-
-    public Team(String name, String description, String member, ArrayList<String> memberList) {
+    public Team(String name, String description) {
         this.name = name;
         this.description = description;
-        this.member = member;
-        this.memberList = memberList;
-        memberList.add(member);
-        instances.add(this);
-        this.id = instances.size();
-
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
         return description;
     }
 
-    public String getMember() {
-        return member;
-    }
-
-    public String getNewMember() {
-        return newMember;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getId() {
         return id;
     }
 
-    public static Team findById(int id) {
-        return instances.get(id-1);
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public ArrayList<String> getMemberList() {
-        return memberList;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Team team = (Team) o;
+
+        if (id != team.id) return false;
+        if (!name.equals(team.name)) return false;
+        return description != null ? description.equals(team.description) : team.description == null;
     }
 
-    public ArrayList<String> addNewMember() {
-        memberList.add(newMember);
-        return memberList;
-    }
-
-    public ArrayList<String> addAnotherMember() {
-        memberList.add(newMember);
-        return memberList;
-    }
-
-    public static ArrayList<Team> getAll() {
-        return instances;
-    }
-
-    public void addsNewMember(String newMember) {
-        this.newMember = newMember;
-    }
-
-    public static void clearAllTeams() {
-        instances.clear();
-    }
-
-    public void update(String name) {
-        this.name = name;
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + id;
+        return result;
     }
 }
+
+
