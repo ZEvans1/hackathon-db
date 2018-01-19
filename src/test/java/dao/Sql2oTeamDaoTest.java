@@ -94,11 +94,11 @@ public class Sql2oTeamDaoTest {
         assertNotEquals(initialName, updatedTeam.getName());
     }
 
-//    @Test
-//    public void newTeam_canBeDeleted() throws Exception {
-//        Team team = setupNewTeam();
-//        teamDao.add(team);
-//        teamDao.deleteById(team.getId());
-//        assertEquals(1, teamDao.getAll().size());
-//    }
+    @Test
+    public void newTeam_canBeDeleted() throws Exception {
+        Team team = setupNewTeam();
+        teamDao.add(team);
+        teamDao.deleteById(team.getId());
+        assertEquals(1, teamDao.getAll().size());
+    }
 }
