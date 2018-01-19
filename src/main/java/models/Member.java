@@ -3,11 +3,11 @@ package models;
 public class Member {
     private String name;
     private int id;
-    //private teamId;
+    private int teamId;
 
     public Member(String name, int teamId) {
         this.name = name;
-        //this.teamId = teamId;
+        this.teamId = teamId;
     }
 
     public String getName() {
@@ -26,6 +26,14 @@ public class Member {
         this.id = id;
     }
 
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -34,6 +42,7 @@ public class Member {
         Member member = (Member) o;
 
         if (id != member.id) return false;
+        if (teamId != member.teamId) return false;
         return name.equals(member.name);
     }
 
@@ -41,7 +50,7 @@ public class Member {
     public int hashCode() {
         int result = name.hashCode();
         result = 31 * result + id;
+        result = 31 * result + teamId;
         return result;
     }
 }
-
