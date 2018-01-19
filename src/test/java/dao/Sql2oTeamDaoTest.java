@@ -99,6 +99,6 @@ public class Sql2oTeamDaoTest {
         Team team = setupNewTeam();
         teamDao.add(team);
         teamDao.deleteById(team.getId());
-        assertEquals(1, teamDao.getAll().size());
+        assertEquals(0, teamDao.getAll().size());
     }
 }
