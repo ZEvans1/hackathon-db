@@ -110,6 +110,6 @@ public class Sql2oTeamDaoTest {
         teamDao.add(team1);
         int teamSize = teamDao.getAll().size();
         teamDao.deleteAllTeams();
-        assertTrue(teamDao.getAll().size()==2);
+        assertEquals(0,teamDao.getAll().size());
     }
 }
