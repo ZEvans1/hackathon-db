@@ -1,16 +1,22 @@
 {{#partial "content"}}
 
+    {{#if editTeam}}
+    <h1>Edit team</h1>
+    <form action="/teams/update" method="post">
+        <select name="editTeamId" id="editTeamId">
+            {{#each teams }}
+            <option value="{{id}}">{{name}}</option>
+            {{/each}}
+        </select>
+        <label for="newTeamName">Change name to: </label>
+        <input id="newTeamName" name="newTeamName" type="text">
 
-<h3>Add Team Members</h3>
-<div>
-    <form action="/teams/{{addToTeam.id}}/add" method="post">
+        {{else}}
+            {{/if}}
+            <br>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
 
-        <label for="newMember">Team Member Name</label>
-        <input id="newMember" name="newMember" type="text">
-
-        <button type="submit" class="btn btn-default">Add Team Member</button>
-    </form>
-</div>
 
 {{/partial}}
 

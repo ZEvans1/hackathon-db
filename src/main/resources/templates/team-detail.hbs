@@ -1,19 +1,23 @@
 {{#partial "content"}}
 
-{{#if team}}
 <h3>Team Name:</h3>
 <p>{{ team.name }}</p>
 <h3>Team Description:</h3>
 <p> {{ team.description }}</p>
-<!--<h3>Team List:</h3>-->
-<!--<p>{{ team.memberList }}</p>-->
+<h3>Team Members:</h3>
+<ul>
+    {{#each members}}
+    <li>
+        <p>{{name}}</p>
+        <a href="/members/update">Edit member name</a><br>
+        <a href="/members/delete">Delete team member</a>
+        </p>
+    </li>
+    {{/each}}
+</ul>
 
-
-<a href="/members/new">Add a Team Member.</a><br>
-<a href="/teams/{{team.id}}/update">Update team name.</a><br>
-
-{{/if}}
-
+<h3><a href="/members/new">Add a new team member</a></h3>
+<h3><a href="/teams/update">Update team</a></h3>
 {{/partial}}
 
 {{> layout.hbs}}

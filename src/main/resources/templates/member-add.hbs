@@ -1,10 +1,42 @@
 {{#partial "content"}}
 
-{{#if team}}
+{{#if editMember}}
+<form action="/members/update" method="post">
+    <h1>Edit Member Name</h1>
+    <select id="memberToEditId" name="memberToEditId">
+        {{#each members}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <br>
+    <label for="name">Edit this task's description</label>
+    <input id="name" name="name" type="text" placeholder="Enter a new description">
+    <br>
+    <label for="teamId">Update this task's category:</label>
+    <select id="teamId" name="teamId">
+        {{#each teams}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select>
 
+    {{else}}
+    <h2>Add a new member!</h2>
 
-{{/if}}
+    <form action="/members/new" method="post">
+        <label for="name">Member Name</label>
+        <input id="name" name="name" type="text">
+        <br>
+        <label for="teamId">Add this member to: </label>
+        <select id="teamId" name="teamId">
+            {{#each teams}}
+            <option value="{{id}}">{{name}}</option>
+            {{/each}}
+        </select>
+        {{/if}}
+        <br>
+        <button type="submit" class="btn btn-default">Add</button>
+    </form>
 
-{{/partial}}
+    {{/partial}}
 
-{{> layout.hbs}}
+    {{> layout.hbs}}
