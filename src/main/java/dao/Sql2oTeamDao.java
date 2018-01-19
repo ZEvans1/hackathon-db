@@ -1,5 +1,6 @@
 package dao;
 
+import models.Member;
 import models.Team;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -33,6 +34,15 @@ public class Sql2oTeamDao implements TeamDao{
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM teams")
                     .executeAndFetch(Team.class);
+        }
+    }
+
+    @Override
+    public Team findById(int id) {
+        try(Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM categories WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Team.class);
         }
     }
 }

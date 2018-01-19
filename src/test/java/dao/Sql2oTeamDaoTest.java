@@ -49,6 +49,11 @@ public class Sql2oTeamDaoTest {
         assertEquals(2, teamDao.getAll().size());
     }
 
-
-
+    @Test
+    public void newTeam_canBeFoundById_true() throws Exception {
+        Team team = setupNewTeam();
+        int originalTeamId = team.getId();
+        teamDao.add(team);
+        assertEquals(originalTeamId, team.getId());
+    }
 }
