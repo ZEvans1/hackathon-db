@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.*;
 
 public class Sql2oMemberDaoTest {
@@ -64,6 +65,14 @@ public class Sql2oMemberDaoTest {
         memberDao.update(member.getId(),"MemberOne",1);
         Member updatedMember = memberDao.findMemberById(member.getId());
         assertNotEquals(initialName, updatedMember.getName());
+    }
+
+    @Test
+    public void newMember_deleteByIdDeletesCorrectTask() throws Exception {
+        Member member = setupNewMember();
+        memberDao.add(member);
+        memberDao.deleteById(member.getId());
+        assertEquals(1, memberDao.getAll().size());
     }
 
 }
