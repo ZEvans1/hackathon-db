@@ -52,7 +52,7 @@ public class Sql2oMemberDaoTest {
     public void newMember_returnAMemberById_true() {
         Member member = setupNewMember();
         memberDao.add(member);
-        assertEquals("Member2",memberDao.findMemberById(1).getName());
+        assertEquals("Member1",memberDao.findMemberById(1).getName());
     }
 
 }
