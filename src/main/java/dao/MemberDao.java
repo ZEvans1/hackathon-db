@@ -11,4 +11,5 @@ public interface MemberDao {
 
     //read
     List<Member> getAll();
+    Member findMemberById(int id);
 }
