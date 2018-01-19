@@ -40,6 +40,15 @@ public class Sql2oTeamDaoTest {
         assertNotEquals(originalTeamId, team.getId());
     }
 
+    @Test
+    public void newTeam_getAllTeamsFromDB_2() throws Exception {
+        Team team = setupNewTeam();
+        Team team2 = setupNewTeam();
+        teamDao.add(team);
+        teamDao.add(team2);
+        assertEquals(1, teamDao.getAll().size());
+    }
+
 
 
 }
