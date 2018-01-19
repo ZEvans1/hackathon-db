@@ -1,6 +1,7 @@
 package dao;
 
 import models.Member;
+import models.Team;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,10 +50,20 @@ public class Sql2oMemberDaoTest {
     }
 
     @Test
-    public void newMember_returnAMemberById_true() {
+    public void newMember_returnAMemberById_true() throws Exception {
         Member member = setupNewMember();
         memberDao.add(member);
         assertEquals("Member1",memberDao.findMemberById(1).getName());
+    }
+
+    @Test
+    public void newMember_updateChangesMemberName() throws Exception {
+        String initialName = "Member1";
+        Member member = new Member(initialName, 1);
+        memberDao.add(member);
+        memberDao.update(member.getId(),"MemberOne",1);
+        Member updatedMember = memberDao.findMemberById(member.getId());
+        assertEquals("Member", updatedMember.getName());
     }
 
 }

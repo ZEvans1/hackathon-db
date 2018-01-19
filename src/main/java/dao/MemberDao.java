@@ -13,4 +13,7 @@ public interface MemberDao {
     List<Member> getAll();
     Member findMemberById(int id);
 
+    //update
+    void update(int id, String name, int teamId);
+
 }
