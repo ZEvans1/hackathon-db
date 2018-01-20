@@ -8,9 +8,8 @@
 <ul>
     {{#each members}}
     <li>
-        <p>{{name}}</p>
+        <p><a href="/teams/{{teamId}}/members/{{id}}">{{ name }}</a></p>
         <a href="/members/update">Edit member name</a><br>
-        <a href="/members/delete">Delete team member</a>
         </p>
     </li>
     {{/each}}

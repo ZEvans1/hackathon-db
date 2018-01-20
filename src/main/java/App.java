@@ -138,7 +138,6 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-
         //show a team
         get("/teams/:teamId", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -148,6 +147,24 @@ public class App {
             List<Member> allMembersByTeam = teamDao.getAllMembersByTeam(idOfTeamToFind);
             model.put("members", allMembersByTeam);
             return new ModelAndView(model, "team-detail.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //show a team member
+        get("/teams/:teamId/members/:memberId", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfMemberToFind = Integer.parseInt(request.params("memberId"));
+            Member foundMember = memberDao.findMemberById(idOfMemberToFind);
+            model.put("member", foundMember);
+            return new ModelAndView(model, "member-detail.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //delete a team member
+        get("/teams/:teamId/members/:memberId/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfMemberToDelete = Integer.parseInt(request.params("memberId"));
+            Member deleteMember = memberDao.findMemberById(idOfMemberToDelete);
+            memberDao.deleteById(idOfMemberToDelete);
+            return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }
