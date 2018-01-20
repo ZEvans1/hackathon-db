@@ -166,5 +166,14 @@ public class App {
             memberDao.deleteById(idOfMemberToDelete);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //delete a team
+        get("/teams/:teamId/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfTeamToDelete = Integer.parseInt(request.params("teamId"));
+            Team deleteTeam = teamDao.findById(idOfTeamToDelete);
+            teamDao.deleteById(idOfTeamToDelete);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
