@@ -32,6 +32,8 @@ _Contact email: zte.zachary@gmail.com_
 * _IntelliJ_
 * _Spark_
 * _Handlebars_
+* _SQL_
+* _H2_
 
 ### License
 
